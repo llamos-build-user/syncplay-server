@@ -1,6 +1,6 @@
 # Builder image downloads and extracts archive
 FROM alpine:3.10 AS builder
-ARG SYNCPLAY_VERSION
+ARG SYNCPLAY_VERSION=1.6.4a
 
 # install wget and ca-certs for https download
 RUN apk add --no-cache wget ca-certificates
@@ -16,7 +16,7 @@ RUN mv syncplay-$SYNCPLAY_VERSION/ syncplay/
 
 
 
-# Python 3.7 and Alpine 3.10 are most recent stable at time of build
+# Python 3.7 and Alpine 3.10 are most recent stable at time of writing
 FROM python:3.7.4-alpine3.10
 RUN apk --update add build-base libffi-dev openssl-dev
 
